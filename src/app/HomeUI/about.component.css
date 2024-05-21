@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    background-color: #0033cc;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav .bank-name h1 {
+    color: white;
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2em;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .content {
+    padding: 2em;
+  }
+  
+  footer {
+    background-color: #0033cc;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+    line-height: 1.6;
+  }
+  
+  .about-container h2 {
+    color: #0033cc;
+    margin-bottom: 1em;
+  }
+  
+  .mission, .history, .values, .team, .achievements {
+    margin-bottom: 2em;
+  }
+  
+  .values ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .values ul li {
+    margin-bottom: 0.5em;
+  }
+  
+  .team-members {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+  
+  .team-member {
+    flex: 1 1 calc(20% - 1em);
+    background-color: #f9f9f9;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .team-member img {
+    max-width: 200px;
+    border-radius: 50%;
+    margin-bottom: 1em;
+  }
+  
+  .team-member h3 {
+    margin: 0.5em 0;
+    color: #0033cc;
+  }
+  
+  .team-member p {
+    margin: 0;
+    font-style: italic;
+  }
+  

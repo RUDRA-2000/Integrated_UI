@@ -1,0 +1,51 @@
+nav {
+    background-color: #0033cc;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav .bank-name h1 {
+    color: white;
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2em;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .header-buttons {
+    display: flex;
+    gap: 1em;
+  }
+  
+  .header-buttons button {
+    background-color: white;
+    color: #0033cc;
+    border: 1px solid #0033cc;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+  }
+  
+  .header-buttons button:hover {
+    background-color: #002299;
+    color: white;
+  }
+  

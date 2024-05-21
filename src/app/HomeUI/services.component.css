@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    background-color: #0033cc;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav .bank-name h1 {
+    color: white;
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2em;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .content {
+    padding: 2em;
+  }
+  
+  footer {
+    background-color: #0033cc;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+    line-height: 1.6;
+  }
+  
+  .services-container h2 {
+    color: #0033cc;
+    margin-bottom: 1em;
+  }
+  
+  .service-category {
+    margin-bottom: 2em;
+  }
+  
+  .service-item {
+    background-color: #f9f9f9;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1em;
+  }
+  
+  .service-item h3 {
+    color: #0033cc;
+    margin-top: 0;
+  }
+  
+  .service-item p {
+    margin-bottom: 0;
+  }
+  

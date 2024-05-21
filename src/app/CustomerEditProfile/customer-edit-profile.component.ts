@@ -1,0 +1,61 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
+import { CustomersApiService } from '../CustomerService/customer-service.service';
+import { CustomerModel } from '../CustomerViewProfile/customer-view-profile.component'; 
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-customer-edit-profile',
+  templateUrl: './customer-edit-profile.component.html',
+  styleUrl: './customer-edit-profile.component.css'
+})
+export class CustomerEditProfileComponent implements OnInit{
+  customer: CustomerModel = new CustomerModel();
+  message: string | null = null;
+  messageType: string | null = null; // 'success' or 'error'
+
+  constructor(
+    private apiService: CustomersApiService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.apiService.getDetails(+id).subscribe({
+        next: (customer) => {
+          this.customer = customer;
+        },
+        error: (error) => {
+          console.error('Failed to load customer details:', error);
+          this.message = 'Failed to load customer details';
+          this.messageType = 'error';
+        }
+      });
+    }
+  }
+
+  onSubmit() {
+    this.apiService.update(this.customer).subscribe({
+      next: () => {
+        this.message = 'Profile updated successfully.';
+        this.messageType = 'success';
+        setTimeout(() => {
+          this.router.navigate(['/customer-view-profile']);
+        }, 2000);
+      },
+      error: (error) => {
+        console.error('Update failed:', error);
+        this.message = 'Failed to update profile.';
+        this.messageType = 'error';
+      }
+    });
+  }
+
+  onBack(): void {
+    this.router.navigate(['/customer-view-profile']);
+  }
+}

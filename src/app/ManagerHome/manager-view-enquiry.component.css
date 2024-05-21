@@ -1,0 +1,43 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 25%; /* Adjust the gap as needed */
+  }
+.account-info{
+  display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30%; /* Adjust the gap as needed */
+}
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap as needed */
+  }
+
+  .contact-info > div {
+    flex: 1;
+  }
+.city-info{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 25%; /* Adjust the gap as needed */
+}
+.document-info{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20%; /* Adjust the gap as needed */
+}
+
+  .address-info,
+  .wrapper,
+  .city-info,
+  .contact-info,
+  .account-info,
+  .document-info {
+    margin-top: 10px; /* Adjust the margin as needed */
+    margin-left: 6%;
+  }

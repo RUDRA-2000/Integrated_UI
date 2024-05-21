@@ -1,1 +1,187 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    background-color: #0033cc;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav .bank-name h1 {
+    color: white;
+    margin: 0;
+    font-size: 2em; /* Slightly shorter font size */
+    font-weight: bold; /* Bold */
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2em;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .header-buttons {
+    display: flex;
+    gap: 1em;
+  }
+  
+  .header-buttons button {
+    background-color: white;
+    color: #0033cc;
+    border: 1px solid #0033cc;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+  }
+  
+  .header-buttons button:hover {
+    background-color: #002299;
+    color: white;
+  }
+
+  .content {
+    padding: 2em;
+  }
+  
+  footer {
+    background-color: #0033cc;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+  }
+  
+  .welcome {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  
+  .services {
+    margin-bottom: 2em;
+  }
+  
+  .services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+  
+  .service-item {
+    flex: 1 1 calc(25% - 1em);
+    background-color: #f9f9f9;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .promotions {
+    margin-bottom: 2em;
+  }
+  
+  .promotion-banner {
+    background-color: #ffcc00;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .testimonials {
+    margin-bottom: 2em;
+  }
+  
+  .testimonial-item {
+    background-color: #f1f1f1;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-left: 4px solid #0033cc;
+    border-radius: 8px;
+  }
+  
+  .quick-links {
+    text-align: center;
+  }
+  
+  .quick-links ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .quick-links ul li {
+    display: inline-block;
+    margin-right: 1em;
+  }
+  
+  .quick-links ul li a {
+    text-decoration: none;
+    color: #0033cc;
+  }
+
+  .enquirer-home-container, .enquirer-signup-container, .enquirer-login-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2em;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .enquirer-home-container h2, .enquirer-signup-container h2, .enquirer-login-container h2 {
+    color: #0033cc;
+    margin-bottom: 1em;
+  }
+  
+  .enquirer-home-container p, .enquirer-signup-container p, .enquirer-login-container p {
+    margin-bottom: 2em;
+  }
+  
+  .enquirer-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .enquirer-buttons button {
+    background-color: #0033cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75em 1.5em;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  .enquirer-buttons button:hover {
+    background-color: #002299;
+  }
+  
