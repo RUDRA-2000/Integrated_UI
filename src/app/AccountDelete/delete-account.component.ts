@@ -35,7 +35,7 @@ export class AccountsDeleteComponent implements OnInit{
     );
   }
 
-  deleteAccount(): void {
+  deleteAccount(custId:number): void {
     // Call the deleteAccount method of the AccountsService to delete the account by accountId
     this.accountsService.deleteAccount(this.accountId).subscribe(
       () => {
@@ -46,7 +46,7 @@ export class AccountsDeleteComponent implements OnInit{
           duration: 500 // 0 means it will stay until dismissed
         });
 
-        this.router.navigate(['/list-account']);
+        this.router.navigate(['/list-account',custId]);
       },
       error => {
         console.error('Error deleting account:', error);
@@ -65,10 +65,10 @@ export class AccountsDeleteComponent implements OnInit{
     }
   }
 
-  GoBack(){
+  GoBack(custId:number){
     const loadingSnackbarRef = this.snackBar.open('Loading, please wait...', 'Close', {
       duration: 500 // 0 means it will stay until dismissed
     });
-     this.router.navigate(['/list-account']);
+    this.router.navigate(['/list-account',custId]);
   }
 }

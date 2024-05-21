@@ -42,9 +42,9 @@ const routes: Routes = [
   {path: 'fund-transfer/:id', component: TransferFundsComponent},
 
   //Accounts
-  {path: 'list-account', component: AccountsListComponent},
+  {path: 'list-account/:id', component: AccountsListComponent},
   {path: 'account-specific-detail/:id', component: AccountSpecificDetailsComponent},
-  {path: 'create-account', component: createAccountComponent},
+  {path: 'create-account/:id', component: createAccountComponent},
   {path: 'delete-account/:id', component: AccountsDeleteComponent},
 
   //Customers

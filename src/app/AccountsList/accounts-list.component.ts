@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Account } from '../AccountsModel/model';
 import { AccountsService } from '../AccountsService/service.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TransactionService } from '../Transactionservices/transaction-service.service';
 import { Transaction } from '../TransactionModel/transaction';
@@ -13,13 +13,20 @@ import { Transaction } from '../TransactionModel/transaction';
 })
 export class AccountsListComponent {
   accounts:Account[] = [];
-  CustId: number = 100001;
+  CustId: number = 0; 
   transactions: Transaction[] = [];
-  constructor(private accService: AccountsService, private router: Router,private snackBar: MatSnackBar,
+  constructor(private accService: AccountsService, private router: Router,private snackBar: MatSnackBar, private route: ActivatedRoute,
      private transactionService : TransactionService) { }
 
   ngOnInit(): void {
-    this.fetchAccounts();
+    this.route.params.subscribe(params => {
+      const accountID = +params['id']; // Retrieve the account ID from the route
+      this.CustId = accountID
+    
+      this.fetchAccounts();
+      
+    });
+  
   }
 
   fetchAccounts(): void {

@@ -44,8 +44,8 @@
   
           <div class="form-group">
             <label for="customerID">Customer ID:</label>
-            <input type="number" class="form-control" id="customerID" formControlName="customerID">
-            <div *ngIf="accountForm.get('customerID')?.errors?.['required']" class="text-danger">Customer ID is required</div>
+            <input type="number" class="form-control" id="customerID" formControlName="customerID" readonly>
+            <div *ngIf="accountForm.get('customerID')?.errors?.['required']" class="text-danger" >Customer ID is required</div>
           </div>
   
           <div class="text-center m-1">

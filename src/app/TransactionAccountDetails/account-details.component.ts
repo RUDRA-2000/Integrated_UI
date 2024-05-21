@@ -3,6 +3,8 @@ import { Transaction } from '../TransactionModel/transaction';
 import { TransactionService } from '../Transactionservices/transaction-service.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AccountsService } from '../AccountsService/service.service';
+import { Account } from '../AccountsModel/model';
 
 @Component({
   selector: 'app-account-details',
@@ -14,10 +16,12 @@ export class AccountDetailsComponent implements OnInit{
   transactions: Transaction[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 10;
+  acc: Account =<Account> {};
 
   constructor(private transactionService: TransactionService,
     private route: ActivatedRoute,
     private router: Router,
+    private accountService : AccountsService
   ) { }
 
  ngOnInit(){
@@ -26,6 +30,10 @@ export class AccountDetailsComponent implements OnInit{
     this.accountId = accountID
     this.getAccountTransactions(accountID);
    
+  });
+
+  this.accountService.getAccountByAccountId(this.accountId).subscribe(acc=>{
+    this.acc=acc;
   });
   
  }
@@ -64,6 +72,7 @@ export class AccountDetailsComponent implements OnInit{
   }
 
   GoBack(){
-     this.router.navigate(['/list-account'])
+  
+     this.router.navigate(['/list-account', this.acc.customerID])
   }
 }

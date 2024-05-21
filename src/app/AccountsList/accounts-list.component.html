@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <h1>Accounts List For Customer ID: {{ CustId }}</h1>
-    <button class="btn btn-success" [routerLink]="['/create-account']">
+    <button class="btn btn-success" [routerLink]="['/create-account', CustId]">
       <i class="fas fa-plus-circle"></i> Create New Account
     </button>
     <div *ngIf="accounts.length === 0" class="alert alert-info">No accounts found.</div>

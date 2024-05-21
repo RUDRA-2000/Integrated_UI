@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../Transactionservices/transaction-service.service';
 import { AccountsService } from '../AccountsService/service.service';
 import { Account } from '../TransactionModel/account';
-import { Subscriber } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-transfer-funds',
@@ -24,6 +23,7 @@ export class TransferFundsComponent implements OnInit{
     private transactionService: TransactionService,
     private accountsService: AccountsService,
     private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(){
@@ -98,5 +98,6 @@ export class TransferFundsComponent implements OnInit{
   closeModal() {
     this.transferSuccess = false;
     this.transferError = '';
+   this.router.navigate(['/transactions', this.sourceAccountId])
   }
 }

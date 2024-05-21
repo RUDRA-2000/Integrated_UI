@@ -54,6 +54,6 @@ export class CustomerDashboardComponent {
   }
 
   onViewAccounts(){
-    
+    this.router.navigate(['/list-account',this.customerId])
   }
 }

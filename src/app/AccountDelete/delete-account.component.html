@@ -18,8 +18,8 @@
                   
                 <div class="card-footer text-center mb-1">
                     <span class="d-block mb-1 text-danger"><strong>are you sure you want to delete this Account?</strong> </span>
-                    <button class="btn btn-sm btn-danger me-2 text-dark" (click)="deleteAccount()">Yes, Delete Account</button>
-                    <button class="btn btn-sm btn-outline-primary" (click)="GoBack()">No, Back to List</button>
+                    <button class="btn btn-sm btn-danger me-2 text-dark" (click)="deleteAccount(account.customerID)">Yes, Delete Account</button>
+                    <button class="btn btn-sm btn-outline-primary" (click)="GoBack(account.customerID)">No, Back to List</button>
                   
                 </div>
             </div>

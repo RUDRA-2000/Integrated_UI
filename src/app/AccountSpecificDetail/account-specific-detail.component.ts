@@ -45,10 +45,10 @@ export class AccountSpecificDetailsComponent {
     }
   }
 
-  GoBack(){
+  GoBack(custId: number){
     const loadingSnackbarRef = this.snackBar.open('Loading, please wait...', 'Close', {
       duration: 500 // 0 means it will stay until dismissed
     });
-     this.router.navigate(['/list-account']);
+     this.router.navigate(['/list-account',custId]);
   }
 }

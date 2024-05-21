@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccountsService } from '../AccountsService/service.service';
 import { Account } from '../AccountsModel/model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -15,11 +15,13 @@ export class createAccountComponent implements OnInit {
   newAccount: Account = <Account>{};
   successMessage: string = '';
   isFormInvalid: boolean = false;
+  custId: number=0;
 
   constructor(
     private formBuilder: FormBuilder,
     private accountsService: AccountsService,
     private router: Router,
+    private route: ActivatedRoute, 
     private snackBar: MatSnackBar
   ) {
     this.accountForm = this.formBuilder.group({}); // Initialize with an empty form group
@@ -46,6 +48,11 @@ export class createAccountComponent implements OnInit {
     this.accountForm.get('hasCheque')?.valueChanges.subscribe(hasCheque => {
       const isChecked = hasCheque === 'true';
       this.accountForm.patchValue({ hasCheque: isChecked }, { emitEvent: false });
+    });
+
+    this.route.paramMap.subscribe(params => {
+      this.custId = +params.get('id')!;
+     this.accountForm.get('customerID')?.setValue(this.custId);
     });
   }
 
@@ -80,7 +87,7 @@ export class createAccountComponent implements OnInit {
   }
 
   onReset(): void {
-    this.accountForm.reset();
+   this.accountForm.reset();
   }
 
   onSubmit(): void {
@@ -123,6 +130,6 @@ export class createAccountComponent implements OnInit {
     const loadingSnackbarRef = this.snackBar.open('Loading, please wait...', 'Close', {
       duration: 1000 // 0 means it will stay until dismissed
     });
-     this.router.navigate(['/list-account']);
+     this.router.navigate(['/list-account', this.custId]);
   }
 }
