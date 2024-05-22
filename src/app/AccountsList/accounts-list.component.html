@@ -1,10 +1,15 @@
 <div class="container mt-5">
-    <h1>Accounts List For Customer ID: {{ CustId }}</h1>
-    <button class="btn btn-success" [routerLink]="['/create-account', CustId]">
-      <i class="fas fa-plus-circle"></i> Create New Account
-    </button>
-    <div *ngIf="accounts.length === 0" class="alert alert-info">No accounts found.</div>
-    <div *ngIf="accounts.length > 0" class="row mt-4">
+  <h1><STrong>ACCOUNTS LIST </STrong></h1>
+  <button class="btn btn-success" [routerLink]="['/create-account', CustId]">
+    <i class="fas fa-plus-circle"></i> Create Account
+  </button>
+
+  <ng-container *ngIf="accounts.length === 0; else accountsList">
+    <div class="alert alert-info">No accounts found.</div>
+  </ng-container>
+
+  <ng-template #accountsList>
+    <div class="row mt-4">
       <div class="col-md-12">
         <table class="table table-striped">
           <thead>
@@ -19,23 +24,21 @@
               <td>{{ account.accountID }}</td>
               <td>{{ account.balance | currency }}</td>
               <td>
-                <button class="btn btn-sm btn-outline-primary" (click)="GoView(account.accountID)">View Details</button>
-                <button class="btn btn-sm btn-outline-danger" [routerLink]="['/delete-account', account.accountID]" style="margin-left: 10px;">Delete</button>
+                <button class="btn btn-sm btn-danger" [routerLink]="['/delete-account', account.accountID]">Delete</button>
+                <button class="btn btn-sm btn-primary" (click)="GoView(account.accountID)">View</button>
                
-                <button  class="btn btn-sm btn-outline-success" (click)="getAccountTransactions(account.accountID)" style="margin-left: 10px;">Transaction Statements</button>  
-                <button  class="btn btn-sm btn-outline-info" (click)="transferFund(account.accountID)" style="margin-left: 10px;">Fund Transfer</button> 
-                <button *ngIf="shouldDisplayChequeButton(account)" class="btn btn-sm btn-outline-warning" (click)="applyForCheque(account.accountID)" style="margin-left: 10px;">Apply Cheque Book</button>
-            </td>
+                <button class="btn btn-sm btn-success" (click)="getAccountTransactions(account.accountID)">Transactions</button>
+                <button class="btn btn-sm btn-info" (click)="transferFund(account.accountID)">Transfer Funds</button>
+                <button *ngIf="shouldDisplayChequeButton(account)" class="btn btn-sm btn-warning" (click)="applyForCheque(account.accountID)">Cheque</button>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+  </ng-template>
 
-    <button class="btn btn-primary" [routerLink]="['/customer-dashboard', CustId]">
-      <i class="fas fa-plus-circle"></i> Go back
-    </button>
-  </div>
-
-
-
+  <button class="btn btn-success" [routerLink]="['/customer-dashboard', CustId]">
+    <i class="fas fa-arrow-left button"></i> Back
+  </button>
+</div>

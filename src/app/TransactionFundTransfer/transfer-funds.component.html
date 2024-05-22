@@ -1,71 +1,48 @@
-<div>
-    <div class="text-center">
-      <h2>Transfer Funds</h2>
-    </div>
-  
-    <div class="container mt-4 col-md-5">
+<div class="container mt-5">
+  <div class="text-center">
+      <h2>TRANSFER FUNDS</h2>
+  </div>
+
+  <div class="container mt-8 col-md-7">
       <div class="row mb-3">
-        <div class="col-md-12">
-          <div class="input-group">
-            <span class="input-group-text col-md-5">Source Account ID:</span>
-            <input type="text" placeholder="Enter Source Account ID" [(ngModel)]="sourceAccountId" class="form-control" readonly>
+          <div class="col-md-20">
+              <div class="input-group">
+                  <span class="input-group-text col-md-5">Source Account ID:</span>
+                  <input type="text" placeholder="Enter Source Account ID" [(ngModel)]="sourceAccountId" class="form-control" readonly>
+              </div>
           </div>
-        </div>
       </div>
       <div class="row mb-3">
-        <div class="col-md-12">
-          <div class="input-group">
-            <span class="input-group-text col-md-5">Destination Account ID:</span>
-            <input type="text" placeholder="Enter Destination Account ID" [(ngModel)]="destinationAccountId" class="form-control">
+          <div class="col-md-12">
+              <div class="input-group">
+                  <span class="input-group-text col-md-5">Destination Account ID:</span>
+                  <input type="text" placeholder="Enter Destination Account ID" [(ngModel)]="destinationAccountId" class="form-control">
+              </div>
           </div>
-        </div>
       </div>
       <div class="row mb-3">
-        <div class="col-md-12">
-          <div class="input-group">
-            <span class="input-group-text col-md-5">Amount:</span>
-            <input type="text" placeholder="Enter Amount" [(ngModel)]="amount" class="form-control">
+          <div class="col-md-12">
+              <div class="input-group">
+                  <span class="input-group-text col-md-5">Amount:</span>
+                  <input type="text" placeholder="Enter Amount" [(ngModel)]="amount" class="form-control">
+              </div>
           </div>
-        </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
-          <button class="btn btn-primary w-100" (click)="transferFunds()">Transfer Funds</button>
-        </div>
+          <div class="col-md-12">
+              <button class="btn btn-success w-100" (click)="transferFunds()">Transfer Funds</button>                  
+              <button class="btn btn-primary w-100" (click)="GoBack()">Go back</button>  
+           
+          </div>
       </div>
-    </div>
-  
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true" [ngClass]="{'show': transferSuccess}" [ngStyle]="{'display': transferSuccess ? 'block' : 'none'}">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title fs-5" id="successModalLabel">Transfer Status</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
-          </div>
-          <div class="modal-body">
-            Transfer successful!
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true" [ngClass]="{'show': transferError !== ''}" [ngStyle]="{'display': transferError !== '' ? 'block' : 'none'}">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title fs-5" id="errorModalLabel">Transfer Error</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
-          </div>
-          <div class="modal-body">
-            {{ transferError }}
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
+
+  <!-- Modals for success and error messages -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true" [ngClass]="{'show': transferSuccess}" [ngStyle]="{'display': transferSuccess ? 'block' : 'none'}">
+      <!-- Modal content -->
+  </div>
+
+  <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true" [ngClass]="{'show': transferError !== ''}" [ngStyle]="{'display': transferError !== '' ? 'block' : 'none'}">
+      <!-- Modal content -->
+  </div>
+</div>

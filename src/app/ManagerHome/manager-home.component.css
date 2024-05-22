@@ -1,0 +1,32 @@
+/* Custom CSS for Pending, Approved, and Rejected Requests */
+
+.container {
+    padding-top: 2px;
+}
+
+.card {
+    width: 100%;
+    max-width: 700px; /* Adjust as needed */
+    margin: 100px;
+}
+
+.card-header {
+    color: #fff;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.list-group-item {
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.list-group-item:hover {
+    background-color: burlywood; /* Background color on hover */
+}
+
+button :hover{
+    background-color: aquamarine;
+}

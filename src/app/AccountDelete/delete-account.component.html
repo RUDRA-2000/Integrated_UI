@@ -6,21 +6,47 @@
                     <h1 class="h4">Account Details</h1>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-text account-id"><strong>Account ID:</strong> {{ account.accountID }}</h3>
-                    <p class="card-text balance"><strong>Balance:</strong> {{ account.balance | currency }}</p>
-                    <p class="card-text has-cheque"><strong>Has Cheque:</strong> {{ account.hasCheque ? 'Yes' : 'No' }}</p>
-                    <p class="card-text wd-quota"><strong>Withdrawal Quota:</strong> {{ account.wd_quota }}</p>
-                    <p class="card-text dp-quota"><strong>Deposit Quota:</strong> {{ account.dp_quota }}</p>
-                    <p class="card-text customer-id"><strong>Customer ID:</strong> {{ account.customerID }}</p>
-                    <p class="card-text account-type"><strong>Account Type:</strong> {{ getAccountType(account.type_id) }}</p>
-                    <p class="card-text branch-id"><strong>Branch ID:</strong> {{ account.branchID }}</p>
-                  </div>
-                  
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Account ID:</th>
+                                <td>{{ account.accountID }}</td>
+                            </tr>
+                            <tr>
+                                <th>Balance:</th>
+                                <td>{{ account.balance | currency }}</td>
+                            </tr>
+                            <tr>
+                                <th>Has Cheque:</th>
+                                <td>{{ account.hasCheque ? 'Yes' : 'No' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Withdrawal Quota:</th>
+                                <td>{{ account.wd_quota }}</td>
+                            </tr>
+                            <tr>
+                                <th>Deposit Quota:</th>
+                                <td>{{ account.dp_quota }}</td>
+                            </tr>
+                            <tr>
+                                <th>Customer ID:</th>
+                                <td>{{ account.customerID }}</td>
+                            </tr>
+                            <tr>
+                                <th>Account Type:</th>
+                                <td>{{ getAccountType(account.type_id) }}</td>
+                            </tr>
+                            <tr>
+                                <th>Branch ID:</th>
+                                <td>{{ account.branchID }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="card-footer text-center mb-1">
-                    <span class="d-block mb-1 text-danger"><strong>are you sure you want to delete this Account?</strong> </span>
+                    <span class="d-block mb-1 text-danger"><strong>Are you sure you want to delete this Account?</strong></span>
                     <button class="btn btn-sm btn-danger me-2 text-dark" (click)="deleteAccount(account.customerID)">Yes, Delete Account</button>
                     <button class="btn btn-sm btn-outline-primary" (click)="GoBack(account.customerID)">No, Back to List</button>
-                  
                 </div>
             </div>
         </div>

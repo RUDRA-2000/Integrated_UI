@@ -5,6 +5,11 @@ nav {
     align-items: center;
     justify-content: space-between;
   }
+
+  h1 {
+    text-decoration: none;
+    cursor: pointer; /* Optional: Adds pointer cursor to indicate clickable */
+  }
   
   nav .bank-name h1 {
     color: white;

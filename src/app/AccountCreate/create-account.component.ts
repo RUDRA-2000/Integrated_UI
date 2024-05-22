@@ -104,7 +104,7 @@ export class createAccountComponent implements OnInit {
           });
           console.log('Account created successfully', this.successMessage);
           this.accountForm.reset();
-          this.router.navigate(['/list-account']);
+          this.router.navigate(['/list-account',this.custId]);
         },
         error => {
           this.snackBar.open('Error creating account.', 'Close', {

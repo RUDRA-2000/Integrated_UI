@@ -1,0 +1,76 @@
+/* Custom CSS for Account Details */
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styles */
+.container {
+    padding: 20px;
+}
+
+/* Card styles */
+.card {
+    border: none;
+}
+
+/* Card header styles */
+.card-header {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 15px 0;
+}
+
+/* Card body styles */
+.card-body {
+    padding: 20px;
+}
+
+/* Card text styles */
+.card-text {
+    margin-bottom: 10px;
+}
+
+/* Button styles */
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    border-color: #007bff;
+    color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+/* Text styles */
+.text-danger {
+    color: #dc3545;
+}
+
+/* Responsive styles for smaller devices */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+}

@@ -1,8 +1,7 @@
-<!-- login.component.html -->
 <div class="container mt-4">
   <div class="row justify-content-center align-items-center" style="height: 100vh;">
-    <div class="col-md-6">
-      <div class="card">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm">
         <div class="card-body">
           <h3 class="card-title text-center">PCT BANK LOGIN PANEL</h3>
           <div *ngIf="message" class="alert alert-info">{{ message }}</div>
@@ -24,11 +23,13 @@
             </div>
           </form>
           <div *ngIf="loading" class="text-center mt-2">
-            <div class="spinner-border text-primary" role="status"> 
-            </div>
+            <div class="spinner-border text-primary" role="status"></div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-md-6 col-lg-5 d-none d-md-block">
+      <img src="assets/UserLogin.jpg" alt="Banking" class="img-fluid rounded shadow-sm">
     </div>
   </div>
 </div>

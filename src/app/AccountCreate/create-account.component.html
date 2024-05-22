@@ -1,59 +1,64 @@
 <div class="container mt-3 mb-3">
-    <div class="card" style="max-width: 500px; margin: 0 auto">
-      <div class="card-header bg-primary">
-        <h1 class="card-title text-center">Create New Account</h1>
-      </div>
-      <div class="card-body">
-        <form [formGroup]="accountForm" (ngSubmit)="onSubmit()" (ngReset)="onReset()">
-          <div class="form-group">
-            <label for="type_id">Account Type:</label>
-            <!-- <input type="number" class="form-control" id="type_id" formControlName="type_id"> -->
-            <select class="form-control" id="type_id" formControlName="type_id">
-              <option value="1">Savings</option>
-              <option value="2">Current</option>
-            </select>
-            <div *ngIf="accountForm.get('type_id')?.errors?.['required']" class="text-danger">Type ID is required</div>
+  <div class="card" style="max-width: 500px; margin: 0 auto;">
+    <div class="card-header bg-primary">
+      <h1 class="card-title text-center">Create New Account</h1>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="accountForm" (ngSubmit)="onSubmit()" (ngReset)="onReset()">
+        <div class="form-group">
+          <label for="type_id">Account Type:</label>
+          <select class="form-control" id="type_id" formControlName="type_id">
+            <option value="1">Savings</option>
+            <option value="2">Current</option>
+          </select>
+          <div *ngIf="accountForm.get('type_id')?.errors?.['required']" class="text-danger">
+            Type ID is required
           </div>
-  
-          <div class="form-group">
-            <label for="balance">Initial Deposit:</label>
-            <input type="number" class="form-control" id="balance" formControlName="balance">
-            <div *ngIf="accountForm.get('balance')?.errors?.['required']" class="text-danger">Balance is required</div>
-            <div *ngIf="accountForm.errors?.['balanceError']" class="text-danger">
-              {{ accountForm.errors?.['balanceError'] }}
-            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="balance">Initial Deposit:</label>
+          <input type="number" class="form-control" id="balance" formControlName="balance">
+          <div *ngIf="accountForm.get('balance')?.errors?.['required']" class="text-danger">
+            Balance is required
           </div>
-  
-          <div class="form-group">
-            <label for="wd_quota">Withdrawal Quota:</label>
-            <input type="number" class="form-control" id="wd_quota" formControlName="wd_quota" [readonly]="true">
+          <div *ngIf="accountForm.errors?.['balanceError']" class="text-danger">
+            {{ accountForm.errors?.['balanceError'] }}
           </div>
-  
-          <div class="form-group">
-            <label for="dp_quota">Deposit Quota:</label>
-            <input type="number" class="form-control" id="dp_quota" formControlName="dp_quota" [readonly]="true">
+        </div>
+
+        <div class="form-group">
+          <label for="wd_quota">Withdrawal Quota:</label>
+          <input type="number" class="form-control" id="wd_quota" formControlName="wd_quota" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="dp_quota">Deposit Quota:</label>
+          <input type="number" class="form-control" id="dp_quota" formControlName="dp_quota" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="hasCheque">Want Cheque Book:</label>
+          <select class="form-control" id="hasCheque" formControlName="hasCheque">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="customerID">Customer ID:</label>
+          <input type="number" class="form-control" id="customerID" formControlName="customerID" readonly>
+          <div *ngIf="accountForm.get('customerID')?.errors?.['required']" class="text-danger">
+            Customer ID is required
           </div>
-  
-          <div class="form-group">
-            <label for="hasCheque">Want Cheque Book:</label>
-            <select class="form-control" id="hasCheque" formControlName="hasCheque">
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-          </div>
-  
-          <div class="form-group">
-            <label for="customerID">Customer ID:</label>
-            <input type="number" class="form-control" id="customerID" formControlName="customerID" readonly>
-            <div *ngIf="accountForm.get('customerID')?.errors?.['required']" class="text-danger" >Customer ID is required</div>
-          </div>
-  
-          <div class="text-center m-1">
-            <button type="submit" class="btn btn-success" [disabled]="!accountForm.valid">Submit</button>
-            <button type="reset" class="btn btn-secondary" style="margin-left: 10px;">Reset</button>
-            <button class="btn btn-outline-primary" (click)="GoBack()" style="margin-left: 10px;">Back to List</button>
-          </div>
-        </form>
-      </div>
+        </div>
+
+        <div class="text-center m-1">
+          <button type="submit" class="btn btn-success" [disabled]="!accountForm.valid">Submit</button>
+          <button type="reset" class="btn btn-secondary" style="margin-left: 10px;">Reset</button>
+          <button class="btn btn-outline-primary" (click)="GoBack()" style="margin-left: 10px;">Back to List</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>

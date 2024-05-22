@@ -14,7 +14,7 @@ export class ManagerViewEnquiryComponent  implements OnInit{
   managerId:number=0;
   isPending:boolean = false;
   needsCheque:string="No";
-  EnquiryDetais:Enquiry = <Enquiry>{};
+  EnquiryDetails:Enquiry = <Enquiry>{};
   isPopupVisible: boolean = false;
 
 
@@ -45,12 +45,12 @@ export class ManagerViewEnquiryComponent  implements OnInit{
         }else{
           data.accountType="Current"
         }
-        this.EnquiryDetais=data;
-        this.EnquiryDetais.photo="data:image/jpeg;base64,"+data.photo
-        this.EnquiryDetais.aadhaar="data:image/jpeg;base64,"+data.aadhaar
-        this.EnquiryDetais.panCard="data:image/jpeg;base64,"+data.panCard
+        this.EnquiryDetails=data;
+        this.EnquiryDetails.photo="data:image/jpeg;base64,"+data.photo
+        this.EnquiryDetails.aadhaar="data:image/jpeg;base64,"+data.aadhaar
+        this.EnquiryDetails.panCard="data:image/jpeg;base64,"+data.panCard
        
-        while(this.EnquiryDetais.emailAddress==null){
+        while(this.EnquiryDetails.emailAddress==null){
           console.log("error"); 
         }
         this.Spinner.hide();
@@ -85,5 +85,10 @@ export class ManagerViewEnquiryComponent  implements OnInit{
       }
     )
     this.router.navigate(['/manager',this.managerId])
+  }
+
+  goBack(){
+   
+    this.router.navigate(['/manager',this.managerId]);
   }
 }

@@ -48,6 +48,7 @@ const routes: Routes = [
   {path: 'delete-account/:id', component: AccountsDeleteComponent},
 
   //Customers
+  {path: 'user-home', component: UserHomeComponent},
   {path: 'user-login', component: CustomerLoginComponent},
   {path: 'customer-dashboard/:id', component: CustomerDashboardComponent,canActivate: [AuthGuard]},
   {path: 'customer-change-password', component: CustomerChangePasswordComponent},
@@ -62,7 +63,7 @@ const routes: Routes = [
 
 
   //common
-  { path: 'user-home', component: UserHomeComponent },
+  { path: 'home', component: UserHomeComponent },
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'services', component: ServicesComponent },

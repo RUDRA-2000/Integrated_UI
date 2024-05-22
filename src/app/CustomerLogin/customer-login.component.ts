@@ -43,9 +43,10 @@ export class CustomerLoginComponent {
             window.sessionStorage.setItem("username", this.username);
 
             // Redirect based on the user type
-            console.log(res.employeeId)
+             console.log("aa",res.employeeId)
             if (res.employeeId) {
               window.sessionStorage.setItem("employeeId", res.employeeId.toString());
+              
               this.router.navigate(['/manager', res.employeeId]);
             } else {
               
