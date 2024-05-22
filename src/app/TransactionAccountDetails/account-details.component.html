@@ -41,6 +41,7 @@
         </tr>
       </tbody>
     </table>
+    <button class="btn btn-secondary mt-3" (click)="downloadTransactionsAsPDF()">Download</button>
   </div>
 
   <nav *ngIf="transactions.length > itemsPerPage" aria-label="Page navigation">
