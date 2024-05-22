@@ -48,7 +48,7 @@ const routes: Routes = [
   {path: 'delete-account/:id', component: AccountsDeleteComponent},
 
   //Customers
-  {path: 'customer-login', component: CustomerLoginComponent},
+  {path: 'user-login', component: CustomerLoginComponent},
   {path: 'customer-dashboard', component: CustomerDashboardComponent,canActivate: [AuthGuard]},
   {path: 'customer-change-password', component: CustomerChangePasswordComponent},
   {path: 'customer-edit-profile', component: CustomerEditProfileComponent ,canActivate: [AuthGuard]},
