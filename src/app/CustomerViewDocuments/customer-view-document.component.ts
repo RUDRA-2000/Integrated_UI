@@ -114,7 +114,7 @@ export class CustomerViewDocumentComponent implements OnInit{
         showMessage(msg: string): void { this.message = msg; setTimeout(() => this.message = '', 1000); // Clear message after 3 seconds 
 
         }
-        onBack(): void { this.router.navigate(['/customer-dashboard']); }// Optionally, force a component reload 
+        onBack(): void { this.router.navigate(['/customer-dashboard',this.customerId]); }// Optionally, force a component reload 
 
       }
 export class DocumentModel {

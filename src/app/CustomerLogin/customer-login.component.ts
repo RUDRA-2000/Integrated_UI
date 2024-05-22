@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,30 +37,44 @@ export class CustomerLoginComponent {
             // Delay navigation to allow the user to read the message
             setTimeout(() => {
               this.router.navigate(['/customer-change-password']);
-            }, 1000); // Delay for 1 seconds
+            }, 1000); // Delay for 1 second
           } else if (res.token) {
             window.sessionStorage.setItem("token", res.token);
-            window.sessionStorage.setItem("customerId", this.username);
-            
             window.sessionStorage.setItem("username", this.username);
-            this.router.navigateByUrl('/customer-dashboard');
+
+            // Redirect based on the user type
+            console.log(res.employeeId)
+            if (res.employeeId) {
+              window.sessionStorage.setItem("employeeId", res.employeeId.toString());
+              this.router.navigate(['/manager', res.employeeId]);
+            } else {
+              
+              window.sessionStorage.setItem("customerId", this.username);
+              this.router.navigate(['/customer-dashboard',this.username]);
+            }
           } else {
             this.message = "Login unsuccessful, please check and try again.";
           }
         },
-        error: (error) => {
+        error: (error: HttpErrorResponse) => {
           this.loading = false; // Reset loading state on error
-          this.message = "Error during login. Please try again.";
+          if (error.error && error.error.message) {
+            this.message = error.error.message;
+          } else {
+            this.message = "Error during login. Please try again.";
+          }
           console.error("Login error:", error);
         }
       });
   }
 }
+
 export class LoginResponse {
   constructor(
     public userId: number, 
     public fullName: string,
     public token: string,
-    public mustChangePassword: boolean
+    public mustChangePassword: boolean,
+    public employeeId?: number // Optional, only present for employees
   ) {}
 }

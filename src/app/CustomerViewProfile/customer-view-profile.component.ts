@@ -65,7 +65,7 @@ export class CustomerViewProfileComponent {
   }
 
   onBack(): void {
-    this.router.navigate(['/customer-dashboard']);
+    this.router.navigate(['/customer-dashboard',this.CustomerDetails.customerId]);
   }
 }
 

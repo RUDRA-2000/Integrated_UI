@@ -23,7 +23,7 @@
                 <button class="btn btn-sm btn-outline-danger" [routerLink]="['/delete-account', account.accountID]" style="margin-left: 10px;">Delete</button>
                
                 <button  class="btn btn-sm btn-outline-success" (click)="getAccountTransactions(account.accountID)" style="margin-left: 10px;">Transaction Statements</button>  
-                <button  class="btn btn-sm btn-outline-success" (click)="transferFund(account.accountID)" style="margin-left: 10px;">Fund Transfer</button> 
+                <button  class="btn btn-sm btn-outline-info" (click)="transferFund(account.accountID)" style="margin-left: 10px;">Fund Transfer</button> 
                 <button *ngIf="shouldDisplayChequeButton(account)" class="btn btn-sm btn-outline-warning" (click)="applyForCheque(account.accountID)" style="margin-left: 10px;">Apply Cheque Book</button>
             </td>
             </tr>
@@ -31,4 +31,11 @@
         </table>
       </div>
     </div>
+
+    <button class="btn btn-primary" [routerLink]="['/customer-dashboard', CustId]">
+      <i class="fas fa-plus-circle"></i> Go back
+    </button>
   </div>
+
+
+

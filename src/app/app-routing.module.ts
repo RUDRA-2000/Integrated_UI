@@ -48,10 +48,10 @@ const routes: Routes = [
   {path: 'delete-account/:id', component: AccountsDeleteComponent},
 
   //Customers
-  {path: 'customer-login', component: CustomerLoginComponent},
-  {path: 'customer-dashboard', component: CustomerDashboardComponent,canActivate: [AuthGuard]},
+  {path: 'user-login', component: CustomerLoginComponent},
+  {path: 'customer-dashboard/:id', component: CustomerDashboardComponent,canActivate: [AuthGuard]},
   {path: 'customer-change-password', component: CustomerChangePasswordComponent},
-  {path: 'customer-edit-profile', component: CustomerEditProfileComponent ,canActivate: [AuthGuard]},
+  {path: 'customer-edit-profile/:id', component: CustomerEditProfileComponent ,canActivate: [AuthGuard]},
   {path: 'customer-view-document/:id', component: CustomerViewDocumentComponent ,canActivate: [AuthGuard]},
   {path: 'customer-view-profile', component: CustomerViewProfileComponent,canActivate: [AuthGuard] },
 
