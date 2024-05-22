@@ -24,7 +24,10 @@
     "bootstrap": "^5.3.3",
     "file-server": "^2.2.1",
     "font-awesome": "^4.7.0",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.2",
     "ngx-spinner": "^17.0.0",
+    "papaparse": "^5.4.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

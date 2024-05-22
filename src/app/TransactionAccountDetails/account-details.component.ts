@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from '../TransactionModel/transaction';
 import { TransactionService } from '../Transactionservices/transaction-service.service';
-import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountsService } from '../AccountsService/service.service';
 import { Account } from '../AccountsModel/model';
@@ -51,6 +50,11 @@ export class AccountDetailsComponent implements OnInit{
 
   });
   }
+
+  downloadTransactionsAsPDF() {
+    this.transactionService.downloadTransactionsAsPDF(this.accountId);
+  }
+  
   onPageChange(pageNumber: number) {
     this.currentPage = pageNumber;
   }
