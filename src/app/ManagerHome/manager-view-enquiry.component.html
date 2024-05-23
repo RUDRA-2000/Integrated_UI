@@ -1,107 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>View Data</title>
-    <link rel="manager-view-enquiry.component.css" />
-  </head>
-  <body>
-    <ngx-spinner bdColor = "rgba(0,0,0,0.8)" size = "medium" color = "#4470a6" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Fetching Data.... </p></ngx-spinner>
-
-    <div class="card shadow m-auto m-1">
-      <div class="card-body m-3 btn-outline-black">
-        <div class="bg-dark text-center">
-          <h2 class="text-white">Enquiry Details</h2>
-        </div>
-        <div class="row mx-3">
-          <!-- First Name and Last Name -->
-          <div class="col-md-4 mt-5 "><strong>FirstName: </strong>{{ EnquiryDetais.firstName }}</div>
-          <div class="col-md-4 mt-5"><strong>LastName: </strong>{{ EnquiryDetais.lastName }}</div>
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Data</title>
+  <link rel="stylesheet" href="manager-view-enquiry.component.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card shadow-lg">
+      <div class="card-header bg-dark text-white">
+        <h2 class="text-center">Enquiry Details</h2>
+      </div>
+      <div class="card-body">
+        <div class="row">
           <div class="col-md-4">
-            <!-- Image -->
-            <img
-              src={{EnquiryDetais.photo}}
-              alt="Photo"
-              style="width: 75px; height: auto"
-            />
+            <strong>First Name:</strong> {{ EnquiryDetails.firstName }}
+          </div>
+          <div class="col-md-4">
+            <strong>Last Name:</strong> {{ EnquiryDetails.lastName }}
+          </div>
+          <div class="col-md-4 text-center">
+            <img src="{{ EnquiryDetails.photo }}" alt="Photo" class="photo">
           </div>
         </div>
-
-        <div class="row mx-3 mt-4">
-          <!-- Address Lines -->
+        <hr>
+        <div class="row">
+          <div class="col-md-12">
+            <strong>Address:</strong> {{ EnquiryDetails.addressLine1 }}, {{ EnquiryDetails.addressLine2 }}, {{ EnquiryDetails.addressLine3 }}
+          </div>
+        </div>
+       
           <div>
-            <strong>Address: </strong><span>{{ EnquiryDetais.addressLine1 }} </span>
-            <span>{{ EnquiryDetais.addressLine2 }} </span> <span>{{ EnquiryDetais.addressLine3 }}</span>
+            <strong>City:</strong> {{ EnquiryDetails.city }}
           </div>
-        </div>
+          <br/>
+          <div>
+            <strong>Country:</strong> {{ EnquiryDetails.country }}
+          </div>
+          <br/>
+          <div>
+            <strong>PinCode:</strong> {{ EnquiryDetails.pinCode }}
+          </div>
+          <br/>
+       
+          <div>
+            <strong>Phone No:</strong> {{ EnquiryDetails.phoneNumber }}
+          </div>
+          <br/>
+       
+          <div >
+            <strong>Email:</strong> {{ EnquiryDetails.emailAddress }}
+          </div>
+          <br/>
+        
+       
+          <div>
+            <strong>Account Type:</strong> {{ EnquiryDetails.accountType }}
+          </div>
+          <br/>
 
-        <div class="row mx-3 mt-4">
-          <!-- City, Country, and Pincode -->
-          <div class="col-md-4"><strong>City: </strong>{{ EnquiryDetais.city }}</div>
-          <div class="col-md-4"><strong>Country: </strong>{{ EnquiryDetais.country }}</div>
-          <div class="col-md-4"><strong>PinCode: </strong>{{ EnquiryDetais.pinCode }}</div>
-        </div>
+          <div>
+            <strong>Required Cheque Book:</strong> {{ needsCheque }}
+          </div>
+          <br/>
 
-        <div class="row mx-3 mt-4">
-          <!-- Phone Number and Email Address -->
-          <div class="col-md-4">
-            <strong>PhoneNo: </strong>{{ EnquiryDetais.phoneNumber }}
-          </div >
-          <div class="col-md-7"><strong>Email: </strong>{{ EnquiryDetais.emailAddress }}</div>
-          <div></div>
-        </div>
+          <div>
+            <strong>Balance:</strong> {{ EnquiryDetails.balance }}
+          </div>
+          <br/>
 
-        <div class="row mx-3 mt-4">
-          <!-- Account Type and Balance -->
-          <div class="col-md-4">
-            <strong>AccountType: </strong>{{ EnquiryDetais.accountType }}
-          </div >
-          <div class="col-md-4"><strong>Required Cheque Book: </strong>{{ needsCheque }}</div>
-          <br />
-          <p class="text-center mt-4"><strong>Balance: </strong>{{ EnquiryDetais.balance }}</p>
+       
+        <div class="header bg-primary text-white mt-4 mb-2 p-2 text-center">
+          <strong>Documents</strong>
         </div>
-        <div class="text-center bg-primary mx-1">Documents</div>
-        <div class="document-info">
-            <div class="text-center">
-              <label><strong> Aadhaar Document:</strong> </label>
-              <img
-              src={{EnquiryDetais.aadhaar}}
-              alt="Aadhaar"
-              style="width: 800px; height: auto"
-            />
-            </div>
-            <div>
+        <div class="row">
+          <div class="col-md-6">
+            <label><strong>Aadhaar Document:</strong></label>
+            <img src="{{ EnquiryDetails.aadhaar }}" alt="Aadhaar" class="document-img">
+          </div>
+          <div class="col-md-6">
             <label><strong>PanCard Document:</strong></label>
-            <img
-              src={{EnquiryDetais.panCard}}
-              alt="PanCard"
-              style="width: 800px; height: auto"
-            />
+            <img src="{{ EnquiryDetails.panCard }}" alt="PanCard" class="document-img">
           </div>
         </div>
       </div>
-
-      <div class="card-footer">
-        <div class="form-group text-center">
-          <div *ngIf = "isPending">
-            <button
-              class="btn btn-sm btn-outline-success mx-1"
-              (click)="onApprove()"
-            >
-              Approve
-            </button>
-            <button
-              class="btn btn-sm btn-outline-danger mx-1"
-              (click)="onReject()"
-            >
-              Reject
-            </button>
-            <app-popup *ngIf="isPopupVisible" (close)="closePopup($event)" (onCancel)="ResetPopup()"></app-popup>
-          </div>
+      <div class="card-footer text-center">
+        <div *ngIf="isPending">
+          <button class="btn btn-success mx-2" (click)="onApprove()">Approve</button>
+          <button class="btn btn-danger mx-2" (click)="onReject()">Reject</button>
+          <app-popup *ngIf="isPopupVisible" (close)="closePopup($event)" (onCancel)="ResetPopup()"></app-popup>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+  <div class="card-footer text-center mb-14">
+  <button class="btn btn-sm btn-outline-primary" (click)="goBack()">Go Back</button>
+</div>
+</body>
 </html>

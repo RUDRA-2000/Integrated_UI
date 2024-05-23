@@ -28,9 +28,7 @@ export class ManagerHomeComponent {
   ) {}
 
   ngOnInit() {
-
     
-
     this.id = this.currentRoute.snapshot.params["id"];
   
     this.fetchEnquiries(this.id);

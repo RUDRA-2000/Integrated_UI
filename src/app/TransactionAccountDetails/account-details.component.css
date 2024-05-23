@@ -1,0 +1,60 @@
+/* Custom CSS for Account Transaction Details */
+
+/* Table styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.table th {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+/* Pagination styles */
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination .page-item .page-link {
+    color: #007bff;
+    border: 1px solid #dee2e6;
+    padding: 6px 12px;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #f8f9fa;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+/* Button styles */
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    color: #fff;
+}

@@ -3,6 +3,8 @@ import { TransactionService } from '../Transactionservices/transaction-service.s
 import { AccountsService } from '../AccountsService/service.service';
 import { Account } from '../TransactionModel/account';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CustomersApiService } from '../CustomerService/customer-service.service';
+import { CustomerModel } from '../CustomerViewProfile/customer-view-profile.component';
 
 @Component({
   selector: 'app-transfer-funds',
@@ -17,19 +19,27 @@ export class TransferFundsComponent implements OnInit{
   balance: string = '';
   transferSuccess: boolean = false;
   transferError: string = '';
+  custId : number = 0;
   account: Account=<Account>{};
+
 
   constructor(
     private transactionService: TransactionService,
     private accountsService: AccountsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+   
   ) { }
 
   ngOnInit(){
     this.route.params.subscribe(params => {
       const accountID = +params['id']; // Retrieve the account ID from the route
       this.sourceAccountId = accountID + "";
+
+      
+      this.accountsService.getAccountByAccountId(parseInt(this.sourceAccountId)).subscribe(acc=>{
+        this.account=acc;
+      })
  
     });
   }
@@ -43,9 +53,7 @@ export class TransferFundsComponent implements OnInit{
     const sourceAccountId = parseInt(this.sourceAccountId);
     const destinationAccountId = parseInt(this.destinationAccountId);
     const amount = parseFloat(this.amount);
-    this.accountsService.getAccountByAccountId(sourceAccountId).subscribe(acc=>{
-      this.account=acc;
-    })
+    
     console.log(this.account.balance)
     const balance = this.account.balance;
 
@@ -100,4 +108,11 @@ export class TransferFundsComponent implements OnInit{
     this.transferError = '';
    this.router.navigate(['/transactions', this.sourceAccountId])
   }
+
+  GoBack(){
+
+     this.router.navigate(['/list-account', this.account.customerID])
+
+    
+ }
 }

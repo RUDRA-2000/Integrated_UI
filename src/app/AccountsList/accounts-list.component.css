@@ -1,0 +1,61 @@
+/* Overall container styling */
+.container {
+    max-width: 960px; /* Set a reasonable maximum width for responsiveness */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some breathing room */
+  }
+  
+  /* Heading and button styling */
+  h1 {
+    margin-bottom: 20px; /* Add spacing after the heading */
+    text-align: center; /* Center the heading text */
+  }
+  
+  .btn {
+    margin-right: 10px; /* Add some space between buttons */
+    align-items: center;
+  }
+  
+  /* "No accounts found" message styling */
+  .alert-info {
+    text-align: center;
+  
+  }
+  
+  /* Table styling */
+  table {
+    width: 100%; /* Make the table fill the full container width */
+    border-collapse: collapse; /* Collapse table borders for a cleaner look */
+  }
+  
+  th,
+  td {
+    padding: 10px; /* Add some padding to table cells */
+    border: 1px solid #ddd; /* Add a thin border to table cells */
+  }
+  
+  th {
+    text-align: left; /* Left-align table headers */
+  }
+  
+  /* Action buttons within the table */
+  .btn-sm {
+    margin-right: 5px; /* Reduce spacing between action buttons */
+  }
+  
+  /* Back button styling */
+ 
+
+  .btn-danger {
+    float: right; /* Position the back button to the right */
+  }
+  .btn-primary {
+    float: right; /* Position the back button to the right */
+  }
+ 
+
+ 
+  
+
+  
+  

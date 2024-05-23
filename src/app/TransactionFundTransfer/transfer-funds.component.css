@@ -1,0 +1,37 @@
+/* Custom CSS for Transfer Funds page */
+
+.container {
+    margin-top: 20px;
+}
+
+.text-center {
+    margin-bottom: 20px;
+}
+
+.input-group-text {
+    width: 150px; /* Adjust as needed */
+}
+
+.form-control {
+    width: calc(100% - 160px); /* Adjust as needed */
+}
+
+.btn-primary {
+    margin-top: 20px;
+}
+
+.modal-body {
+    font-size: 18px;
+}
+
+.modal-dialog {
+    max-width: 400px; /* Adjust as needed */
+}
+
+.modal-title {
+    font-size: 24px;
+}
+
+.modal-footer {
+    justify-content: center;
+}

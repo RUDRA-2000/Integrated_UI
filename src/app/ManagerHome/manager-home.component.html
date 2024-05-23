@@ -1,44 +1,54 @@
 <div class="container my-4">
-    <!-- Pending Requests -->
-    <div class="card shadow m-auto m-2">
-      <div class="card-header text-center d-flex bg-secondary">
-        <div class="fs-3 text-uppercase flex-grow-1">Pending Requests</div>
+
+  <div class="row align-items-center mb-4">
+    <div class="col-md-3">
+        <img src="assets/ManagerHome.jpg" alt="Image" class="img-fluid">
+    </div>
+    <div class="col-md-9">
+        <h1 class="text-uppercase"><i><strong>Check out <br>your Latest Requests!!!</strong></i></h1>
+       
+    </div>
+</div>
+
+  <!-- Pending Requests -->
+  <div class="card shadow mb-4">
+      <div class="card-header text-center bg-secondary">
+          <h2 class="fs-3 text-uppercase mb-0">Pending Requests</h2>
       </div>
-      <div class="card-body overflow-y-visible">
-        <div class="list-group" *ngFor="let enquiry of enquiriesPending">
-            <button (click)="onManagerId(enquiry.enquiryId)" class="list-group-item list-group-item-action bg-light text-center">
-                {{ enquiry.fullName }}
+      <div class="card-body">
+          <div class="list-group">
+              <button *ngFor="let enquiry of enquiriesPending" (click)="onManagerId(enquiry.enquiryId)" class="list-group-item list-group-item-action bg-light text-center">
+                  {{ enquiry.fullName }}
               </button>
-        </div>
+          </div>
       </div>
-    </div>
-  
-    <!-- Approved Requests -->
-    <div class="card shadow m-auto m-2">
-      <div class="card-header text-center d-flex bg-success">
-        <div class="fs-3 text-uppercase flex-grow-1">Approved Requests</div>
-      </div>
-      <div class="card-body overflow-y-visible">
-        <div class="list-group" *ngFor="let enquiry of enquiriesApproved">
-            <button (click)="onManagerId(enquiry.enquiryId)" class="list-group-item list-group-item-action bg-light text-center">
-                {{ enquiry.fullName }}
-              </button>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Rejected Requests -->
-    <div class="card shadow m-auto m-2">
-      <div class="card-header text-center d-flex bg-danger">
-        <div class="fs-3 text-uppercase flex-grow-1">Rejected Requests</div>
-      </div>
-      <div class="card-body overflow-y-visible">
-        <div class="list-group" *ngFor="let enquiry of enquiriesRejected">
-          <button (click)="onManagerId(enquiry.enquiryId)" class="list-group-item list-group-item-action bg-light text-center">
-            {{ enquiry.fullName }}
-          </button>
-        </div>
-      </div>
-    </div>
   </div>
-  
+
+  <!-- Approved Requests -->
+  <div class="card shadow mb-4">
+      <div class="card-header text-center bg-success">
+          <h2 class="fs-3 text-uppercase mb-0">Approved Requests</h2>
+      </div>
+      <div class="card-body">
+          <div class="list-group">
+              <button *ngFor="let enquiry of enquiriesApproved" (click)="onManagerId(enquiry.enquiryId)" class="list-group-item list-group-item-action bg-light text-center">
+                  {{ enquiry.fullName }}
+              </button>
+          </div>
+      </div>
+  </div>
+
+  <!-- Rejected Requests -->
+  <div class="card shadow mb-4">
+      <div class="card-header text-center bg-danger">
+          <h2 class="fs-3 text-uppercase mb-0">Rejected Requests</h2>
+      </div>
+      <div class="card-body">
+          <div class="list-group">
+              <button *ngFor="let enquiry of enquiriesRejected" (click)="onManagerId(enquiry.enquiryId)" class="list-group-item list-group-item-action bg-light text-center">
+                  {{ enquiry.fullName }}
+              </button>
+          </div>
+      </div>
+  </div>
+</div>
