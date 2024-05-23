@@ -35,6 +35,8 @@ export class LoginComponent {
     const url = 'https://enquirerwebapi.azurewebsites.net/api/GetEnquirer';
     const body = { email: this.email, password: this.password };
     const body1={email:this.email}
+
+    console.log(body)
   
        // Show a loading toast
        const loadingSnackbarRef = this.snackBar.open('Submitting data, please wait...', 'Close', {

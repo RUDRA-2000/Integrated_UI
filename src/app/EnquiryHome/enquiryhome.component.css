@@ -24,7 +24,7 @@
   }
   
   .enquirer-buttons button {
-    background-color: #0033cc;
+    background-color: #023e8a;
     color: white;
     border: none;
     border-radius: 4px;
@@ -34,7 +34,7 @@
   }
   
   .enquirer-buttons button:hover {
-    background-color: #002299;
+    background-color: #317a89;
   }
   
   .services-section, .testimonials-section, .faq-section {

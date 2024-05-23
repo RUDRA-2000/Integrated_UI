@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AccountsService } from '../AccountsService/service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {  Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-account-specific-details',
@@ -18,6 +19,7 @@ export class AccountSpecificDetailsComponent {
     private router: Router,
     private accService: AccountsService,
     private snackBar: MatSnackBar,
+    private Spinner:NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
@@ -28,8 +30,13 @@ export class AccountSpecificDetailsComponent {
   }
 
   fetchAccountDetails(accountID: number): void {
+    this.Spinner.show();
     this.accService.getAccountByAccountId(accountID).subscribe(account => {
       this.account = account;
+      while(this.account.balance==null){
+         
+      }
+      this.Spinner.hide();
     });
   }
 

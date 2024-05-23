@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Account } from '../AccountsModel/model';
 import { Observable } from 'rxjs';
+import {  HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,22 +15,42 @@ export class AccountsService {
   ) { }
 
   getAllAccountsByCustomerId(CustId: number): Observable<Account[]> {
-    return this.http.get<Account[]>(`${this.apiUrl}/${CustId}`);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${window.sessionStorage.getItem("token")}` // Ensure the token is added correctly
+    });
+    return this.http.get<Account[]>(`${this.apiUrl}/${CustId}`,{headers});
   }
 
   getAccountByAccountId(AccId: number): Observable<Account> {
-    return this.http.get<Account>(`${this.apiUrl}/AccId/${AccId}`);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${window.sessionStorage.getItem("token")}` // Ensure the token is added correctly
+    });
+    return this.http.get<Account>(`${this.apiUrl}/AccId/${AccId}`,{headers});
   }
 
   createAccount(account: Account): Observable<Account> {
-    return this.http.post<Account>(`${this.apiUrl}/Create`, account);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${window.sessionStorage.getItem("token")}` // Ensure the token is added correctly
+    });
+    return this.http.post<Account>(`${this.apiUrl}/Create`, account,{headers});
   }
 
   deleteAccount(AccId: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/Delete?AccID=${AccId}`);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${window.sessionStorage.getItem("token")}` // Ensure the token is added correctly
+    });
+    return this.http.delete(`${this.apiUrl}/Delete?AccID=${AccId}`,{headers});
   }
 
   applyForCheque(AccId: number): Observable<any> {
-    return this.http.put(`${this.apiUrl}/Cheque?AccID=${AccId}`, null);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${window.sessionStorage.getItem("token")}` // Ensure the token is added correctly
+    });
+    return this.http.put(`${this.apiUrl}/Cheque?AccID=${AccId}`, null,{headers});
   }
 }

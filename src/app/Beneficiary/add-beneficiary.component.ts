@@ -24,11 +24,13 @@ export class AddBeneficiaryComponent implements OnInit{
 
   ngOnInit(): void {
     const customerIdParam = this.route.snapshot.paramMap.get('customerId');
+
     if (customerIdParam) {
       this.customerId = +customerIdParam;
       this.beneficiary.customerId = this.customerId;
     } else {
       this.customerId = +window.sessionStorage.getItem('customerId')!;
+      console.log(this.customerId)
       if (this.customerId) {
         this.beneficiary.customerId = this.customerId;
       } else {

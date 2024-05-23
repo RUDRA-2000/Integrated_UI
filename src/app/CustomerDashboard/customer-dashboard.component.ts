@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CustomersApiService } from '../CustomerService/customer-service.service';
 
 @Component({
   selector: 'app-account-dashboard',
@@ -10,10 +11,14 @@ import { FormsModule } from '@angular/forms';
 })
 export class CustomerDashboardComponent {
   customerId?: number;  // Declare customerId as an optional number
+  
 
   constructor(private router: Router) {
-    this.initializeCustomerId();
+    this.initializeCustomerId()
+  
   }
+
+ 
 
   initializeCustomerId() {
     const storedId = window.sessionStorage.getItem("customerId");
@@ -26,6 +31,7 @@ export class CustomerDashboardComponent {
       //this.router.navigateByUrl('/customer-login'); // Redirect to login if ID not found
     }
   }
+
 
   onViewProfile() {
     this.router.navigateByUrl('/customer-view-profile');

@@ -1,20 +1,15 @@
 <nav>
-    <div class="bank-name">
-      
-        <h1  onclick="window.location.href='/'">PCT BANK LTD</h1>
-      
-    </div>
-    <ul>
+  <div class="bank-name">
+      <h1 onclick="window.location.href='/'">PCT BANK LTD</h1>
+  </div>
+  <ul>
       <li><a routerLink="/">Home</a></li>
       <li><a routerLink="/about">About Us</a></li>
       <li><a routerLink="/services">Services</a></li>
       <li><a routerLink="/contact">Contact</a></li>
-    </ul>
-    <div  class="header-buttons">
-    
-      <button *ngIf="isLogIn" routerLink="/enquirer-home">Enquirer</button>
-      <button *ngIf="isLogIn" routerLink="/user-home">User</button>
-      <button *ngIf="!isLogIn" (click)="onLogOut()">LogOut</button>
-    </div>
-  </nav>
-  
+  </ul>
+  <div class="header-buttons">
+      <button routerLink="/enquirer-home">Enquirer</button>
+      <button routerLink="/user-home">User</button>
+  </div>
+</nav>

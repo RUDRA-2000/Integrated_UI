@@ -19,6 +19,7 @@ export class HeaderComponent {
   }
   onLogOut(){
      window.sessionStorage.setItem('isLoggedIn','false');
+     window.sessionStorage.removeItem('token');
      this.router.navigate(['/'])
   }
   

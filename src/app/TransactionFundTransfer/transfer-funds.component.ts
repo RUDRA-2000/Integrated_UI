@@ -9,7 +9,7 @@ import { CustomerModel } from '../CustomerViewProfile/customer-view-profile.comp
 @Component({
   selector: 'app-transfer-funds',
   templateUrl: './transfer-funds.component.html',
-  styleUrl: './transfer-funds.component.css'
+  styleUrls: ['./transfer-funds.component.css']
 })
 export class TransferFundsComponent implements OnInit{
 
@@ -60,6 +60,7 @@ export class TransferFundsComponent implements OnInit{
     const amount = parseFloat(this.amount);
 
     console.log(destinationAccountId)
+    console.log(sourceAccountId)
     
     console.log(this.account.balance)
     const balance = this.account.balance;
@@ -130,5 +131,4 @@ export class TransferFundsComponent implements OnInit{
 
       console.log("From parent", this.TransferAcc)
  }
-
 }

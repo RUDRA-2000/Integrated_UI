@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CustomersApiService } from '../CustomerService/customer-service.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-list-beneficiary',
@@ -21,7 +22,8 @@ export class ListBeneficiaryComponent {
   constructor(
     private beneficiariesService: CustomersApiService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private Spinner:NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -36,10 +38,15 @@ export class ListBeneficiaryComponent {
   }
 
   loadBeneficiaries(customerId: number): void {
+    this.Spinner.show();
     this.beneficiariesService.getBeneficiariesByCustomerId(customerId).subscribe({
       next: (res) => {
         console.log('Beneficiaries fetched:', res); // Debug log
         this.beneficiaries = res;
+        while(this.beneficiaries==null){
+         
+        }
+        this.Spinner.hide();
       },
       error: (error) => {
         this.message = 'Failed to load beneficiaries. Please try again.';

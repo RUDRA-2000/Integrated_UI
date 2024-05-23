@@ -4,6 +4,7 @@ import { ManagerServiceService } from '../ManagerService/manager-service.service
 import { ActivatedRoute } from '@angular/router';
 import { EnquiryUrlData } from '../ManagerModel/enquiry-url-data';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-manager-home',
@@ -25,12 +26,13 @@ export class ManagerHomeComponent {
     private managerService: ManagerServiceService,
     private currentRoute:ActivatedRoute,
     private router: Router,
+    private Spinner:NgxSpinnerService
   ) {}
 
   ngOnInit() {
     
-    this.id = this.currentRoute.snapshot.params["id"];
-    window.sessionStorage.setItem('managerId',this.id.toString());
+    this.id =  this.currentRoute.snapshot.params["id"];
+     window.sessionStorage.setItem('managerId',this.id.toString())
     this.fetchEnquiries(this.id);
   }
 
@@ -38,19 +40,31 @@ export class ManagerHomeComponent {
 
   fetchEnquiries(id:number)
   {
-
+    this.Spinner.show();
      
     this.managerService.getPendingList(id)
       .subscribe(enquiries => {
         this.enquiriesPending = enquiries
+        while(this.enquiriesPending==null){
+         
+        }
+        this.Spinner.hide();
       })
     this.managerService.getApprovedList(id)
       .subscribe(enquiries => {
         this.enquiriesApproved = enquiries
+        while(this.enquiriesApproved==null){
+         
+        }
+        this.Spinner.hide();
       })
     this.managerService.getRejectedList(id)
       .subscribe(enquiries => {
         this.enquiriesRejected = enquiries
+        while(this.enquiriesRejected==null){
+         
+        }
+        this.Spinner.hide();
       })
   }
 

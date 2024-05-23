@@ -13,6 +13,6 @@ export class ChangePasswordService {
 
   changePassword(username: string, oldPassword: string, newPassword: string): Observable<any> {
     const changePasswordData = { Username: username, OldPassword: oldPassword, NewPassword: newPassword };
-    return this.http.post<any>(`${this.apiUrl}/customer-change-password`, changePasswordData);
+    return this.http.post<any>(`${this.apiUrl}/changePassword`, changePasswordData);
   }
 }
