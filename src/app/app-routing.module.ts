@@ -26,6 +26,7 @@ import { ManagerViewEnquiryComponent } from './ManagerHome/manager-view-enquiry.
 import { ManagerHomeComponent } from './ManagerHome/manager-home.component';
 import { TransferFundsComponent } from './TransactionFundTransfer/transfer-funds.component';
 import { AuthGuard } from './CustomerService/auth.guard';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 
 
@@ -68,6 +69,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'services', component: ServicesComponent },
   { path: 'contact', component: ContactComponent },
+  {path:'unauthorized',component:UnauthorizedComponent},
   { path: '**', component: PageNotFoundComponent },
 ];
 

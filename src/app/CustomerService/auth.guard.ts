@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     if (token) {
       return true;
     } else {
-      this.router.navigate(['/customer-login'], { queryParams: { returnUrl: state.url }});
+      this.router.navigate(['/unauthorized']);
       return false;
     }
   }

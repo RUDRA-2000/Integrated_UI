@@ -39,6 +39,7 @@ import { ManagerPopupComponent } from './ManagerHome/manager-popup.component';
 import { TransferFundsComponent } from './TransactionFundTransfer/transfer-funds.component';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 
 
@@ -82,6 +83,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ManagerViewEnquiryComponent,
     ManagerPopupComponent,
     TransferFundsComponent,
+    UnauthorizedComponent,
 
 
   ],
