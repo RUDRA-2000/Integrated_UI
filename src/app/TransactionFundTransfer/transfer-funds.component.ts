@@ -13,10 +13,12 @@ import { CustomerModel } from '../CustomerViewProfile/customer-view-profile.comp
 })
 export class TransferFundsComponent implements OnInit{
 
+  TransferAcc: string='';
+
   sourceAccountId: string = '';
   destinationAccountId: string = '';
   amount: string = '';
-  balance: string = '';
+  balance: string = ''; 
   transferSuccess: boolean = false;
   transferError: string = '';
   custId : number = 0;
@@ -28,6 +30,7 @@ export class TransferFundsComponent implements OnInit{
     private accountsService: AccountsService,
     private route: ActivatedRoute,
     private router: Router,
+    
    
   ) { }
 
@@ -50,9 +53,13 @@ export class TransferFundsComponent implements OnInit{
   }
 
   transferFunds() {
+    
+
     const sourceAccountId = parseInt(this.sourceAccountId);
     const destinationAccountId = parseInt(this.destinationAccountId);
     const amount = parseFloat(this.amount);
+
+    console.log(destinationAccountId)
     
     console.log(this.account.balance)
     const balance = this.account.balance;
@@ -115,4 +122,13 @@ export class TransferFundsComponent implements OnInit{
 
     
  }
+ 
+ RecieveAccFromBenef(TransferAcc: string){
+
+      this.TransferAcc = TransferAcc;
+      this.destinationAccountId = this.TransferAcc
+
+      console.log("From parent", this.TransferAcc)
+ }
+
 }

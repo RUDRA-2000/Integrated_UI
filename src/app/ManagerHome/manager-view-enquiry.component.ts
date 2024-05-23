@@ -30,7 +30,7 @@ export class ManagerViewEnquiryComponent  implements OnInit{
     this.Spinner.show();
     this.enquiryId = this.currentRoute.snapshot.params["enquiryId"];
     const SmanagerId = window.sessionStorage.getItem('managerId');
-   this.managerId = this.currentRoute.snapshot.params["managerId"];
+   this.managerId = SmanagerId ? parseInt(SmanagerId) : 0;
     console.log(this.managerId)
   
     this.apiservices.getEnquiryDetails(this.enquiryId).subscribe(
@@ -52,7 +52,7 @@ export class ManagerViewEnquiryComponent  implements OnInit{
         this.EnquiryDetails.panCard="data:image/jpeg;base64,"+data.panCard
        
         while(this.EnquiryDetails.emailAddress==null){
-          console.log("error"); 
+         
         }
         this.Spinner.hide();
       }   

@@ -20,7 +20,7 @@ export class EnquiryFormComponent  implements OnInit, AfterContentChecked {
   imageSrc1: string | null = null;
   imageSrc2: string | null = null;
   imageSrc3: string | null = null;
- 
+  maxDate: string
 
 
   constructor(
@@ -52,10 +52,15 @@ export class EnquiryFormComponent  implements OnInit, AfterContentChecked {
        imageSrc1: [''],
   imageSrc2:  [''],
   imageSrc3: [''],
+ 
   // photoName:[''],
   // aadharName:[''],
   // panCardName:['']
     });
+
+    const today = new Date();
+    const eighteenYearsAgo = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+    this.maxDate = eighteenYearsAgo.toISOString().split('T')[0];
   }
 
   
@@ -276,7 +281,7 @@ export class EnquiryFormComponent  implements OnInit, AfterContentChecked {
       this.snackBar.open('Documents submitted successfully!', 'Close', {
         duration: 3000
       });
-      this.router.navigate(['/enquirer-signUp']);
+      this.router.navigate(['/enquirer-home']);
     },
     error => {
       console.error('API error:', error);

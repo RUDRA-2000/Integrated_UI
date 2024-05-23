@@ -8,6 +8,7 @@ import { DocumentModel } from '../CustomerViewDocuments/customer-view-document.c
 import { Router } from '@angular/router';
 import { Token } from '@angular/compiler';
 import { throwError, catchError } from 'rxjs';
+import { Beneficiary } from '../Beneficiary/view-beneficiary.component';
 //import { Product } from '../models/product';
 
 @Injectable({
@@ -95,6 +96,36 @@ updateDocuments(customerId: number, formData: FormData): Observable<any> {
   
   return this.http.put<any>(`${this.url}/api/Document/${customerId}`, formData, { headers });
 }
+
+
+addBeneficiary(beneficiary: Beneficiary): Observable<Beneficiary> {
+  const token = window.sessionStorage.getItem('token');
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+  return this.http.post<Beneficiary>(`${this.url}/api/Beneficiaries/add`, beneficiary, { headers }).pipe(
+    catchError(this.handleError)
+  );
+}
+
+private handleError(error: any): Observable<never> {
+  console.error('An error occurred:', error); // for debugging purposes
+  // Ideally, transform the error into a user-friendly message
+  return throwError(() => new Error('Something went wrong; please try again later.'));
+}
+
+deleteBeneficiaryByAccountId(benefAccount: number): Observable<any> {
+  const token = window.sessionStorage.getItem('token');
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.delete(`${this.url}/api/Beneficiaries/${benefAccount}`, { headers });
+}
+
+getBeneficiariesByCustomerId(customerId: number): Observable<Beneficiary[]> {
+  const token = window.sessionStorage.getItem('token');
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.get<Beneficiary[]>(`${this.url}/api/Beneficiaries/${customerId}`, { headers });
+}
+
+
 
 }
 

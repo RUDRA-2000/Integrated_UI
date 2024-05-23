@@ -49,8 +49,13 @@ export class CustomerDashboardComponent {
     this.router.navigateByUrl('/customer-login');
   }
 
-  onAddBeneficiaries(){
-
+  onViewBeneficiaries(){
+    
+    if(this.customerId)
+    this.router.navigate(['/view-beneficiaries',this.customerId])
+  else{
+    this.router.navigate(['/contact'])
+  }
   }
 
   onViewAccounts(){
