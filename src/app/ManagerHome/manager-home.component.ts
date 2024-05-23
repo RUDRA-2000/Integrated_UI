@@ -30,7 +30,7 @@ export class ManagerHomeComponent {
   ngOnInit() {
     
     this.id = this.currentRoute.snapshot.params["id"];
-  
+    window.sessionStorage.setItem('managerId',this.id.toString());
     this.fetchEnquiries(this.id);
   }
 
