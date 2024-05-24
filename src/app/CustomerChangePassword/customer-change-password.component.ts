@@ -46,7 +46,7 @@ export class CustomerChangePasswordComponent {
         next: () => {
           this.successMessage = 'Password changed successfully';
           setTimeout(() => {
-            this.router.navigateByUrl('/customer-login');
+            this.router.navigateByUrl('/user-login');
           }, 2000);
         },
         error: (error) => {

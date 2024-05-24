@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container">
   <h2 class="heading">ENQUIRY FORM</h2>
 
@@ -82,7 +83,7 @@
 
   <div class="form-group">
     <label for="DOB">Date of Birth:</label>
-    <input type="date" class="form-control" id="DOB" formControlName="DOB"/>
+    <input type="date" class="form-control" id="DOB" formControlName="DOB"  [max]="maxDate"/>
     <div *ngIf="enquiryForm.get('DOB')?.errors?.['required']" class="text-danger">DOB Required</div>
   </div>
   

@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TransactionService } from '../Transactionservices/transaction-service.service';
 import { Transaction } from '../TransactionModel/transaction';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-accounts-list',
@@ -16,7 +18,7 @@ export class AccountsListComponent {
   CustId: number = 0; 
   transactions: Transaction[] = [];
   constructor(private accService: AccountsService, private router: Router,private snackBar: MatSnackBar, private route: ActivatedRoute,
-     private transactionService : TransactionService) { }
+     private transactionService : TransactionService, private Spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -30,9 +32,14 @@ export class AccountsListComponent {
   }
 
   fetchAccounts(): void {
+    this.Spinner.show();
     this.accService.getAllAccountsByCustomerId(this.CustId) // Replace '1' with the actual Customer ID
       .subscribe(accounts => {
         this.accounts = accounts;
+        while(this.accounts==null){
+         
+        }
+        this.Spinner.hide();
       });
   }
 

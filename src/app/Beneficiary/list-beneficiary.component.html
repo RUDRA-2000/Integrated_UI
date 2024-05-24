@@ -1,0 +1,31 @@
+<ngx-spinner bdColor = "rgba(0,0,0,0.8)" size = "medium" color = "#4470a6" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Fetching Data.... </p></ngx-spinner>
+<div class="container mt-4">
+   
+       
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center blue-background"><h2>Your Beneficiaries</h2></h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Beneficiary Name</th>
+                                <th>Account Number</th>
+                                <th>Account Type</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let beneficiary of beneficiaries">
+                                <td>{{ beneficiary.benefName }}</td>
+                                <td>{{ beneficiary.benefAccount }}</td>
+                                <td>{{ getAccountType(beneficiary.benefAccType) }}</td>
+                                <td>
+                                    <button class="btn btn-warning" (click)="onSelect( beneficiary.benefAccount)">Transfer</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+           
+    </div>
+</div>

@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { CustomersApiService } from '../CustomerService/customer-service.service';
 import { CommonModule } from '@angular/common';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class CustomerViewDocumentComponent implements OnInit{
     private apiService: CustomersApiService,
     private route: ActivatedRoute,
     private router: Router,
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    private Spinner:NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -44,6 +46,7 @@ export class CustomerViewDocumentComponent implements OnInit{
   }
 
   private loadDocuments(customerId: number): void {
+    this.Spinner.show();
     const headers = new HttpHeaders().set('Cache-Control', 'no-cache, no-store, must-revalidate');
     this.apiService.getDocuments(customerId).subscribe({
       next: (doc) => {
@@ -51,6 +54,10 @@ export class CustomerViewDocumentComponent implements OnInit{
         this.aadhar = `data:image/jpeg;base64,${doc.baseAadhar}`;
         this.panCard = `data:image/jpeg;base64,${doc.basePanCard}`;
         this.changeDetector.detectChanges();  // Force change detection
+        while(this.photo==null){
+         
+        }
+        this.Spinner.hide();
       },
       error: (error) => {
         console.error('Failed to load documents', error);

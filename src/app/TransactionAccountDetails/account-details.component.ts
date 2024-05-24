@@ -4,6 +4,7 @@ import { TransactionService } from '../Transactionservices/transaction-service.s
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountsService } from '../AccountsService/service.service';
 import { Account } from '../AccountsModel/model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-account-details',
@@ -20,7 +21,8 @@ export class AccountDetailsComponent implements OnInit{
   constructor(private transactionService: TransactionService,
     private route: ActivatedRoute,
     private router: Router,
-    private accountService : AccountsService
+    private accountService : AccountsService,
+    private Spinner:NgxSpinnerService
   ) { }
 
  ngOnInit(){
@@ -32,22 +34,31 @@ export class AccountDetailsComponent implements OnInit{
   });
 
   this.accountService.getAccountByAccountId(this.accountId).subscribe(acc=>{
+    this.Spinner.show();
     this.acc=acc;
+    while(this.acc==null){
+         
+    }
+    this.Spinner.hide();
   });
   
  }
 
   getAccountTransactions(accountID:number) {
+    this.Spinner.show();
     this.transactionService.getAccountTransactions(this.accountId)
     .subscribe({
       next: (data: Transaction[]) => {
           this.transactions = data;
           console.log(this.transactions)
+          while(this.transactions==null){
+         
+          }
+          this.Spinner.hide();
         },
       error: (error:any) => {
           console.error(error);
         }
-
   });
   }
 

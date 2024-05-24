@@ -37,7 +37,7 @@ export class SignUpComponent {
           duration: 3000
         });
 
-        this.router.navigate(['/enquirer-login']);
+        this.router.navigate(['/enquirer-home']);
       },
       (error: any) => {
         console.error('Signup error:', error);
